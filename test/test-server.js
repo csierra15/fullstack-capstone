@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 
 describe('index page', function() {
     it('is real', function(done) {
-        return chai.request(app)
+        chai.request(app)
             .get('/')
             .end(function(err, res) {
                 res.should.have.status(200);
