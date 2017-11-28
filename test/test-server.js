@@ -6,13 +6,14 @@ const {app} = require('../server');
 
 chai.use(chaiHttp);
 
-describe('server', function() {
-    it('should see what\'s in files', function() {
+describe('index page', function() {
+    it('is real', function(done) {
         return chai.request(app)
             .get('/')
-            .then(function(res) {
+            .end(function(err, res) {
                 res.should.have.status(200);
                 res.should.be.html;
+                done();
             });
     });
 });
