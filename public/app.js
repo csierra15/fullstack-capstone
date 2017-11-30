@@ -33,7 +33,7 @@ let MOCK_LISTS = {
 
 function getLists(callbackFn) {
     setTimeout(function() {
-        callbackFn(MOCK_LISTS)}, 1);
+        callbackFn(MOCK_LISTS)}, 100);
 }
 
 function displayLists(data) {
