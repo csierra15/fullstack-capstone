@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: kC6HhB/nrsjgdTg7oS40WL1/HD9iq3RPBTIsdtdmKzCdjsJgTa7pAShMX0+Ylf7GJBiIAVtC/ojzccjbBm1r7RS1N+FGF7uIFVVwLbb9Vts3+ooMWwh7WmWGGK2O1M8qKUbSLTC1FnRhcBe45uXEQK1M/aCusZ55gvGqxOpGoyrosp7gecakVr5V2Do62VA20g58gJ0Eg0eVM8WIZKfSG/geYZJebryli3MsqqQqbZESSeB96O0ipn176FACj8n24wuWRHl/5WyLDUdkrbasha4QkQOpd73FeH2RfFP+tx38KbVd+v+ZaqwmuMAwSH8luJ/+4L62d8b4fIHD0/XJdRLLAMZ4BaBFBFzT+HScXFQudvsGhG4omMHezGHLkfP4F2zuR/GBnis2u4nj9gjO+8GPeU4PeXUiStlV2eNgrrReObaZkB4YmGpqQe0wUOe+Uk8kSzhxIbhCpRffO4iuGq+9nzZQZ8/Hnq4bJs7WGd5TZ+mq8uYrz8zdKU/+Rzv1Bgh8GAWZLMWCuZw78cDKNzdJYgINOa2E/qk1j1r9QRJN9kefX+zdM6l0rD8U2p5ABUouMbAWaHgdt1Q+dXcQvmtnlGqOXWT/v2d0VaAf+l2fr4E3vIOdYAy1K1ePesDlSIeQ9vEr1UeV7d1U1wKXhVKk8AdIHvRxYzRVlSoPoBw=
+  app: tranquil-refuge-48316
+  on:
+    repo: csierra15/fullstack-capstone
