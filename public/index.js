@@ -55,7 +55,10 @@ function getProducts(callbackFn) {
 function displayProducts(data) {
     for (index in data.products) {
         $('body').append(
-            `<li>${data.products[index].productName}</li>`
+            `
+            <p class="prodName">${data.products[index].productName}</p>
+            <p class="dept">-${data.products[index].department}</p>
+            `
         );
     }
 }
