@@ -1,100 +1,69 @@
-let MOCK_DEPARTMENTS = {
-    departments = [
+let MOCK_PRODUCTS = {
+    products : [
         {
-            "id": "111111",
-            "deptName": "produce",
-            "products": [
-                "apples",
-                "bananas",
-                "broccoli",
-                "bell peppers",
-                "carrots",
-                "onions",
-                "oranges",
-                "potatoes",
-                "turnip greens"
-            ]
+            id: "111111",
+            productName: "apple",
+            department: "produce"
         },
         {
-            "id": "222222",
-            "deptName": "meat",
-            "products": [
-                {
-                    "beef": [
-                        "steak",
-                        "short ribs",
-                        "ground beef"
-                    ]
-                },
-                {
-                    "chicken": [
-                        "thighs",
-                        "breast",
-                        "feet",
-                        "tenders",
-                        "whole"
-                    ]
-                },
-                {
-                    "pork": [
-                        "shoulder",
-                        "bacon",
-                        "pork chops",
-                        "sausage",
-                    ]
-                },
-                {
-                    "seafood": [
-                        "salmon",
-                        "tilapia",
-                        "scallops",
-                        "shrimp",
-                        "crab"
-                    ]
-                }
-            ]
+            id: "222222",
+            productName: "ground beef",
+            department: "meat"
         },
         {
-            "id": "333333",
-            "deptName": "dairy",
-            "products": [
-                "butter",
-                "milk",
-                "yogurt",
-                "cheese",
-                "ice cream"
-            ]
+            id: "333333",
+            productName: "granola",
+            department: "dry goods"
         },
         {
-            "id": "444444",
-            "deptName": "dry goods",
-            "products": [
-                "flour",
-                "sugar",
-                "spices",
-                "cornmeal",
-                "breadcrumbs"
-            ]
+            id: "444444",
+            productName: "oranges",
+            department: "produce"
+        },
+        {
+            id: "555555",
+            productName: "chicken",
+            department: "meat"
+        },
+        {
+            id: "666666",
+            productName: "flour",
+            department: "dry goods"
+        },
+        {
+            id: "777777",
+            productName: "saurkraut",
+            department: "canned goods"
+        },
+        {
+            id: "888888",
+            productName: "butter",
+            department: "dairy"
+        },
+        {
+            id: "999999",
+            productName: "milk",
+            department: "dairy"
         }
     ]
 };
 
-function getDepartments(callbackFn) {
-    setTimeout(function(){ callbackFn(MOCK_DEPARTMENTS)}, 100);
+function getProducts(callbackFn) {
+    setTimeout(function(){ callbackFn(MOCK_PRODUCTS)}, 100);
 }
 
-function displayDepartments(data) {
-    for (index in data.departments) {
+function displayProducts(data) {
+    for (index in data.products) {
         $('body').append(
-            '<p>' + data.departments[index].products + '</p>'
+            `<li>${data.products[index].productName}</li>`
         );
     }
 }
 
-function getAndDisplayDepartments() {
-    getDepartments(displayDepartments);
+function getAndDisplayProducts() {
+    getProducts(displayProducts);
 }
 
 $(function() {
-    getAndDisplayDepartments();
+    getAndDisplayProducts();
 })
