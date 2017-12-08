@@ -11,19 +11,22 @@ let MOCK_STORES = {
             id: "2222222",
             name: "All-d",
             state: "Tennessee",
-            city: "Nashville"
+            city: "Nashville",
+            aisles: []
         },
         {
             id: "3333333",
             name: "Bargain Bob's",
             state: "Alabama",
-            city: "Huntsville"
+            city: "Huntsville",
+            aisles: []
         },
         {
             id: "4444444",
             name: "Ma and Pa's",
             state: "Alabama",
-            city: "Huntsville"
+            city: "Huntsville",
+            aisles: []
         }
     ]
 }
