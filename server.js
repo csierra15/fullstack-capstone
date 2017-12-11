@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const shoppingListRouter = require('./shoppingListRouter');
 
 const {PORT, DATABASE_URL} = requrie('./config')
 
