@@ -29,6 +29,7 @@ let MOCK_STORES = {
 
 let states = [];
 let cities = [];
+let stores = [];
 
 function displayStates() {
     const options = states.map(state => {
@@ -56,6 +57,13 @@ function processData(data, callback) {
                 acc[`${curr.city}_${curr.state}`] = curr;
                 return acc;
             }));
+
+            stores = Object.values(data
+                .stores
+                .map(store => store.name).reduce((acc, curr) => {
+                    acc[curr] = 1;
+                    return acc;
+                }, {}));
         
         callback();
 }
@@ -73,12 +81,27 @@ function displayCities() {
     $('#select-city').html(filtered_cities);
 }
 
+function displayStores() {
+    const city = $(this).val();
+    const storeName = stores
+        .filter(name => name.city === city)
+        .map(store => `<option value="${store.name}">${store.name}</option>`);
+
+    $('#select-store').html(storeName);
+}
+
 $(function() {
     fetchData(displayStates);
 
     $('#select-state').change(function(e){
-        displayCities;
+        displayCities();
+        console.log('select city ran');
     });
 
     //event handler for the city select box
+
+    $('#select-city').change(function(e) {
+        displayStores();
+        console.log('display stores ran')
+    })
 })
