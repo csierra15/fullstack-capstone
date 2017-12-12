@@ -18,16 +18,23 @@ function seedListData() {
     const seedData = [];
 
     for (let i=0; i<=10; i++) {
-        seedListData.push(generateListData());
+        seedData.push(generateListData());
     }
 
     return ShoppingList.insertMany(seedData);
 }
 
 function generateListData() {
+    const content = [];
+    for (let i=0; 1<5; i++) {
+        content.push({
+            name: faker.name.title(),
+            department: faker.commerce.department
+        })
+    }
     return {
-        name: faker.name.title(),
-        content: faker.commerce.productName()
+        listName: faker.name.title(),
+        content: content
     };
 }
 
@@ -57,7 +64,7 @@ function tearDownDb() {
           it('should return all shopping lists'), function() {
               let res;
               return chai.request(app)
-                .get('/lists')
+                .get('/shopping-lists')
                 .then(function(res) {
                     res.should.have.status(200);
                     res.should.be.json;
@@ -66,7 +73,7 @@ function tearDownDb() {
 
                     res.body.lists.forEach(function(list) {
                         list.should.be.a('object');
-                        list.should.include.keys('id', 'name', 'content');
+                        list.should.include.keys('id', 'listName', 'content', 'publishedAt');
                     });
                     resList = res.body.lists[0];
                     return List.findById(resList.id);
@@ -84,12 +91,12 @@ function tearDownDb() {
               const newList = generateListData();
               
               return chai.request(app)
-                .post('/lists')
+                .post('/shopping-lists')
                 .send(newList)
                 .then(function(res) {
-                    res.should.have.status(200);
+                    res.should.have.status(201);
                     res.body.should.be.a('object');
-                    res.body.should.include.keys('id', 'name', 'content');
+                    res.body.should.include.keys('id', 'listName', 'content', 'publishedAt');
                     res.body.name.should.equal(newList.name);
                     res.body.id.should.not.be.null;
                     res.body.content.should.equal(newList.content);
@@ -109,7 +116,7 @@ function tearDownDb() {
                     updateData.id = list.id;
 
                     return chai.request(app)
-                        .put(`/lists.${list.id}`)
+                        .put(`/shopping-lists.${list.id}`)
                         .send(updateData);
                 })
                 .then(function(res) {
@@ -132,7 +139,7 @@ function tearDownDb() {
             .findOne()
             .then(function(_list) {
               list = _list;
-              return chai.request(app).delete(`/lists/${list.id}`);
+              return chai.request(app).delete(`/shopping-lists/${list.id}`);
             })
             .then(function(res) {
               res.should.have.status(204);
