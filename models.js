@@ -25,4 +25,4 @@ shoppingListSchema.methods.serialize = function() {
 
 const ShoppingList = mongoose.model('ShoppingList', shoppingListSchema);
 
-module.exports = {ShoppingList};
+module.exports = { ShoppingList };

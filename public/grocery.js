@@ -73,16 +73,17 @@ function fetchData(callbackFn) {
 }
 
 function displayCities() {
-    const state = $(this).val();
+    const state = $('#select-state').val();
     const filtered_cities = cities
         .filter(city => city.state === state)
         .map(city => `<option value="${city.city}">${city.city}</option>`);
 
+        
     $('#select-city').html(filtered_cities);
 }
 
 function displayStores() {
-    const city = $(this).val();
+    const city = $('#select-city').val();
     const storeName = stores
         .filter(name => name.city === city)
         .map(store => `<option value="${store.name}">${store.name}</option>`);
