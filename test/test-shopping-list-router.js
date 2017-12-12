@@ -36,7 +36,7 @@ function tearDownDb() {
     return mongoose.connection.dropDatabase();
   }
 
-  describe('Shopping List API resource'), function() {
+  describe('Shopping List API resource', function() {
     before(function() {
         return runServer(DATABASE_URL);
       });
@@ -143,4 +143,4 @@ function tearDownDb() {
             });
         });
       });
-  }
+  });
