@@ -28,7 +28,6 @@ app.use('/shopping-lists', shoppingListRouter);
 app.get('/', function(req, res) {
     res.json({'message': 'answer'});
 });
-app.listen(process.env.PORT || 8080);
 
 let server;
 
@@ -44,6 +43,7 @@ function runServer(dbUrl = DATABASE_URL, port = PORT) {
             })
             .on('error', err => {
                 mongoose.disconnect();
+                reject(err);
             });
         });
     });
