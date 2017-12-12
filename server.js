@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const shoppingListRouter = require('./shoppingListRouter');
 
-const {PORT, DATABASE_URL} = requrie('./config')
+const {PORT, DATABASE_URL} = require('./config')
 
 const app = express();
 
