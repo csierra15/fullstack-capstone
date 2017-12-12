@@ -47,7 +47,7 @@ ShoppingList
         listName: req.body.listName,
         content: req.body.content,
     })
-    .then(ShoppingList => res.status(201).json(shoppingList.serialize()))
+    .then(shoppingList => res.status(201).json(shoppingList.serialize()))
     .catch(err => {
         console.error(err);
         res.status(500).json({error: 'An error occurred'});
