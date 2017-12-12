@@ -9,7 +9,7 @@ const jsonParser = bodyParser.json();
 
 const {ShoppingList} = require('./models');
 
-router.get('/shopping-lists', (req, res) => {
+router.get('/', (req, res) => {
     ShoppingList
         .find()
         .then(lists => {
@@ -21,7 +21,7 @@ router.get('/shopping-lists', (req, res) => {
         });
 });
 
-router.get('/shopping-lists/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     ShoppingList
         .findById(req.params.id)
         .then(list => res.json(list.serialize()))
@@ -31,7 +31,7 @@ router.get('/shopping-lists/:id', (req, res) => {
         });
 });
 
-router.post('/shopping-lists', (req, res) => {
+router.post('/', (req, res) => {
     const requiredFields = ['listName','content'];
     for (let i=0; i<requiredFields.length; i++) {
         const field = requiredFields[i];
@@ -54,7 +54,7 @@ ShoppingList
     });
 });
 
-router.put('/lists/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
         res.status(400).json({
           error: 'Request path id and request body id values must match'
@@ -76,7 +76,7 @@ router.put('/lists/:id', (req, res) => {
     
 });
 
-router.delete('/shopping-lists/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     ShoppingList
         .findByIdAndRemove(req.params.id)
         .then(() => {
