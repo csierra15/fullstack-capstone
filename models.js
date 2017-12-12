@@ -8,8 +8,8 @@ const uuid = require('uuid');
 const shoppingListSchema = mongoose.Schema ({
     listName: {type: String, required: true},
     content: [{
-        name: Name,
-        department: Department
+        name: {type: String, required: true},
+        department: {type: String, required: true}
     }],
     publishedAt: {type: Date, default: Date.now}
 });
