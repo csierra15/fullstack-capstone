@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const shoppingListRouter = require('./shoppingListRouter');
+const { router: shoppingListRouter } = require('./shoppingListRouter');
 
 const {PORT, DATABASE_URL} = require('./config')
 
@@ -22,6 +22,8 @@ app.use(function (req, res, next) {
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
+
+app.use('/shopping-lists', shoppingListRouter);
 
 app.get('/', function(req, res) {
     res.json({'message': 'answer'});

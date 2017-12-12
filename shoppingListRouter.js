@@ -31,7 +31,7 @@ router.get('/shopping-lists/:id', (req, res) => {
         });
 });
 
-router.post('/lists', (req, res) => {
+router.post('/shopping-lists', (req, res) => {
     const requiredFields = ['listName','content'];
     for (let i=0; i<requiredFields.length; i++) {
         const field = requiredFields[i];
@@ -76,7 +76,7 @@ router.put('/lists/:id', (req, res) => {
     
 });
 
-router.delete('/lists/:id', (req, res) => {
+router.delete('/shopping-lists/:id', (req, res) => {
     ShoppingList
         .findByIdAndRemove(req.params.id)
         .then(() => {
@@ -88,5 +88,5 @@ router.delete('/lists/:id', (req, res) => {
         });
 });
 
-module.exports = {router};
+module.exports = { router };
 
