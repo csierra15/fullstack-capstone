@@ -8,12 +8,10 @@ const mongoose = require('mongoose');
 const should = chai.should();
 
 const { ShoppingList } = require('../models');
-const {app, runServer, closeServer} = require('../server');
-const {DATABASE_URL} = require('../config');
+const { app, runServer, closeServer } = require('../server');
+const { TEST_DATABASE_URL } = require('../config');
 
 chai.use(chaiHttp);
-
-app.use(runServer(, closeServer());
 
 function seedListData() {
     console.info('seeding list data');
@@ -45,9 +43,9 @@ function tearDownDb() {
     return mongoose.connection.dropDatabase();
   }
 
-  describe('Shopping List API resource', function() {
+describe('Shopping List API resource', function() {
     before(function() {
-        return runServer(DATABASE_URL);
+        return runServer(TEST_DATABASE_URL);
       });
     
       beforeEach(function() {

@@ -4,9 +4,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+
+mongoose.Promise = global.Promise;
+
 const { router: shoppingListRouter } = require('./shoppingListRouter');
 
-const {PORT, DATABASE_URL} = require('./config')
+const { PORT, DATABASE_URL } = require('./config')
 
 const app = express();
 
@@ -67,4 +70,4 @@ if (require.main === module) {
     runServer().catch(err => console.error(err));
   }
 
-module.exports = {runServer, app, closeServer};
+module.exports = { app, runServer, closeServer };
