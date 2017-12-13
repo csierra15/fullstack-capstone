@@ -13,6 +13,8 @@ const {DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
+app.use(runServer(, closeServer());
+
 function seedListData() {
     console.info('seeding list data');
     const seedData = [];
