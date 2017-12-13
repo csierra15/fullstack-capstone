@@ -29,12 +29,13 @@ let MOCK_STORES = {
 
 let states = [];
 let cities = [];
-let stores = [];
+let names = [];
 
 function displayStates() {
     const options = states.map(state => {
         return `<option value="${state}">${state}</option>`;
     });
+    options.unshift(`<option value="0">Select State...</option>`)
 
     $('#select-state').html(options);
 }
@@ -77,32 +78,39 @@ function displayCities() {
     const filtered_cities = cities
         .filter(city => city.state === state)
         .map(city => `<option value="${city.city}">${city.city}</option>`);
+    filtered_cities.unshift(`<option value="0">Select City...</option>`)
 
-        
     $('#select-city').html(filtered_cities);
 }
 
 function displayStores() {
     const city = $('#select-city').val();
-    const storeName = stores
-        .filter(name => name.city === city)
-        .map(store => `<option value="${store.name}">${store.name}</option>`);
-
-    $('#select-store').html(storeName);
+    const filtered_stores = names
+        //.filter(name => name.city === city)
+        .map(name => `<option value="${name}">${name}</option>`);
+    filtered_stores.unshift(`<option value="0">Select Store...</option>`);
+    $('#select-store').html(filtered_stores);
 }
 
 $(function() {
     fetchData(displayStates);
 
     $('#select-state').change(function(e){
-        displayCities();
+        if($('#select-state').val() != '0') {
+            displayCities();
+        }else{
+            $('#select-city').empty();
+        }
+        
         console.log('select city ran');
     });
 
-    //event handler for the city select box
-
     $('#select-city').change(function(e) {
-        displayStores();
+        if($('#select-stores').val() != '0'){
+            displayStores();
+        }else{
+            $('#select-store').empty();
+        }
         console.log('display stores ran')
     })
 })
