@@ -27,9 +27,8 @@ const storesSchema = mongoose.Schema ({
     name: {type: String, required: true},
     state: {type: String, required: true},
     city: {type: String, required: true},
-    aisles: [{
-        aisleName: {type: String, required: true},
-        products: {type: Array, required: true},
+    products: [{
+        aisle: {type: String, required: true}
     }]
 });
 
@@ -39,7 +38,7 @@ storesSchema.methods.serialize = function() {
         name: this.name,
         state: this.state,
         city: this.city,
-        aisles: this.aisles
+        products: this.products
     };
 };
 

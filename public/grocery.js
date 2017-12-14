@@ -164,12 +164,7 @@ function processData(data, callback) {
                 return acc;
             }));
 
-            stores = Object.values(data
-                .stores
-                .map(store => store.name).reduce((acc, curr) => {
-                    acc[curr] = 1;
-                    return acc;
-                }, {}));
+            stores = Object.values(data.stores);
         
         callback();
 }
@@ -189,9 +184,11 @@ function displayCities() {
 }
 
 function displayStores() {
+    const state = $('#select-state').val();
     const city = $('#select-city').val();
     const storeNames = stores
-        .map(name => `<option value="${name}">${name}</option>`);
+        .filter(store => store.city === city && store.state === state)
+        .map(store => `<option value="${store.id}">${store.name}</option>`);
     storeNames.unshift(`<option value="0">Select Store...</option>`);
     $('#select-store').html(storeNames);
 }
@@ -199,8 +196,11 @@ function displayStores() {
 function displayAisles() {
     //when the user has selected their store, 
     //display the aisles in that store
-    const store = $('#select-store').val();
-    const aisles = aisles.map(aisle => ``)
+    const storeId = $('#select-store').val();
+    const aisles = aisles.map(aisle => ``);
+    const store = stores.find((store) => {
+        return store.id = storeId;
+    });
     
 }
 
@@ -225,4 +225,6 @@ $(function() {
         }
         console.log('display stores ran')
     });
+
+    //select-store.change..., check to make sure not 0, call displayAisles
 });

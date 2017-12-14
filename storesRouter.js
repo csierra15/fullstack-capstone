@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const requiredFields = ['name','state', 'city', 'aisles'];
+    const requiredFields = ['name','state', 'city', 'products'];
     for (let i=0; i<requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
@@ -47,7 +47,7 @@ Stores
         name: req.body.name,
         state: req.body.state,
         city: req.body.city,
-        aisles: req.body.aisles
+        products: req.body.products
     })
     .then(stores => res.status(201).json(stores.serialize()))
     .catch(err => {
@@ -64,7 +64,7 @@ router.put('/:id', (req, res) => {
       }
     
       const updated = {};
-      const updateableFields = ['name', 'aisles'];
+      const updateableFields = ['name', 'products'];
       updateableFields.forEach(field => {
         if (field in req.body) {
           updated[field] = req.body[field];

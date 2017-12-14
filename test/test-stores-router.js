@@ -24,18 +24,18 @@ function seedStoreData() {
 }
 
 function generateStoreData() {
-    const aisles = [];
+    const products = [];
     for (let i=0; i<5; i++) {
-        aisles.push({
-            aisleName: faker.commerce.department(),
-            products: [faker.commerce.product(), faker.commerce.product()],
+        products.push({
+            id: faker.random.uuid(),
+            aisle: faker.commerce.department()
         })
     }
     return {
         name: faker.company.companyName(),
         state: faker.address.state(),
         city: faker.address.city(),
-        aisles: aisles
+        products: products
     };
 }
 
@@ -75,7 +75,7 @@ describe('Stores API resource', function() {
 
                     res.body.forEach(function(store) {
                         store.should.be.a('object');
-                        store.should.include.keys('id', 'name', 'state', 'city', 'aisles');
+                        store.should.include.keys('id', 'name', 'state', 'city', 'products');
                     });
 
                     resStore = res.body[0];
@@ -99,10 +99,10 @@ describe('Stores API resource', function() {
                 .then(function(res) {
                     res.should.have.status(201);
                     res.body.should.be.a('object');
-                    res.body.should.include.keys('id', 'name', 'state', 'city', 'aisles');
+                    res.body.should.include.keys('id', 'name', 'state', 'city', 'products');
                     res.body.name.should.equal(newStore.name);
                     res.body.id.should.not.be.null;
-                    res.body.aisles.should.have.length.of.at.least(1);
+                    res.body.products.should.have.length.of.at.least(1);
                 });
           });
       });
