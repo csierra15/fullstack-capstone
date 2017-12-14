@@ -23,6 +23,27 @@ shoppingListSchema.methods.serialize = function() {
     };
 };
 
-const ShoppingList = mongoose.model('ShoppingList', shoppingListSchema);
+const storesSchema = mongoose.Schema ({
+    name: {type: String, required: true},
+    state: {type: String, required: true},
+    city: {type: String, required: true},
+    aisles: [{
+        aisleName: {type: String, required: true},
+        products: {type: Array, required: true},
+    }]
+});
 
-module.exports = { ShoppingList };
+storesSchema.methods.serialize = function() {
+    return {
+        id: this._id,
+        name: this.name,
+        state: this.state,
+        city: this.city,
+        aisles: this.aisles
+    };
+};
+
+const ShoppingList = mongoose.model('ShoppingList', shoppingListSchema);
+const Stores = mongoose.model('Stores', storesSchema);
+
+module.exports = { ShoppingList, Stores };

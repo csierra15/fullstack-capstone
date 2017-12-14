@@ -4,32 +4,137 @@ let MOCK_STORES = {
             id: "11111111",
             name: "Krooger",
             state: "Tennessee",
-            city: "Nashville"
+            city: "Nashville",
+            aisles: [
+                {
+                    aisleName: "Aisle 1",
+                    products: [
+                        "cereal",
+                        "granola bars",
+                        "oatmeal"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 2",
+                    products: [
+                        "frozen fruit",
+                        "frozen vegetables",
+                        "frozen meals"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 3",
+                    products: [
+                        "meat",
+                        "bread",
+                        "produce"
+                    ]
+                }
+            ]
         },
         {
             id: "2222222",
             name: "All-d",
             state: "Tennessee",
-            city: "Nashville"
+            city: "Nashville",
+            aisles: [
+                {
+                    aisleName: "Aisle 1",
+                    products: [
+                        "cereal",
+                        "granola bars",
+                        "oatmeal"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 2",
+                    products: [
+                        "frozen fruit",
+                        "frozen vegetables",
+                        "frozen meals"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 3",
+                    products: [
+                        "meat",
+                        "bread",
+                        "produce"
+                    ]
+                }
+            ]
         },
         {
             id: "3333333",
             name: "Bargain Bob's",
             state: "Alabama",
-            city: "Huntsville"
+            city: "Huntsville",
+            aisles: [
+                {
+                    aisleName: "Aisle 1",
+                    products: [
+                        "cereal",
+                        "granola bars",
+                        "oatmeal"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 2",
+                    products: [
+                        "frozen fruit",
+                        "frozen vegetables",
+                        "frozen meals"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 3",
+                    products: [
+                        "meat",
+                        "bread",
+                        "produce"
+                    ]
+                }
+            ]
         },
         {
             id: "4444444",
             name: "Ma and Pa's",
             state: "Alabama",
-            city: "Huntsville"
+            city: "Huntsville",
+            aisles: [
+                {
+                    aisleName: "Aisle 1",
+                    products: [
+                        "cereal",
+                        "granola bars",
+                        "oatmeal"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 2",
+                    products: [
+                        "frozen fruit",
+                        "frozen vegetables",
+                        "frozen meals"
+                    ]
+                },
+                {
+                    aisleName: "Aisle 3",
+                    products: [
+                        "meat",
+                        "bread",
+                        "produce"
+                    ]
+                }
+            ]
         }
     ]
 }
 
 let states = [];
 let cities = [];
-let names = [];
+let stores = [];
+let aisles = [];
 
 function displayStates() {
     const options = states.map(state => {
@@ -85,11 +190,18 @@ function displayCities() {
 
 function displayStores() {
     const city = $('#select-city').val();
-    const filtered_stores = names
-        //.filter(name => name.city === city)
+    const storeNames = stores
         .map(name => `<option value="${name}">${name}</option>`);
-    filtered_stores.unshift(`<option value="0">Select Store...</option>`);
-    $('#select-store').html(filtered_stores);
+    storeNames.unshift(`<option value="0">Select Store...</option>`);
+    $('#select-store').html(storeNames);
+}
+
+function displayAisles() {
+    //when the user has selected their store, 
+    //display the aisles in that store
+    const store = $('#select-store').val();
+    const aisles = aisles.map(aisle => ``)
+    
 }
 
 $(function() {
@@ -112,5 +224,5 @@ $(function() {
             $('#select-store').empty();
         }
         console.log('display stores ran')
-    })
-})
+    });
+});

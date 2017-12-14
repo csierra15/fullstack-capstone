@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 mongoose.Promise = global.Promise;
 
 const { router: shoppingListRouter } = require('./shoppingListRouter');
+const { router: storesRouter } = require('./storesRouter');
 
 const { PORT, DATABASE_URL } = require('./config')
 
@@ -27,10 +28,12 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 
 app.use('/shopping-lists', shoppingListRouter);
+app.use('/stores', storesRouter);
 
-app.get('/', function(req, res) {
-    res.json({'message': 'answer'});
-});
+//initial test route
+//app.get('/', function(req, res) {
+    //res.json({'message': 'answer'});
+//});
 
 let server;
 
