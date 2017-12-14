@@ -5,30 +5,21 @@ let MOCK_STORES = {
             name: "Krooger",
             state: "Tennessee",
             city: "Nashville",
-            aisles: [
+            products: [
                 {
-                    aisleName: "Aisle 1",
-                    products: [
-                        "cereal",
-                        "granola bars",
-                        "oatmeal"
-                    ]
+                    1: "aisle 1",
+                    2: "aisle 2",
+                    3: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 2",
-                    products: [
-                        "frozen fruit",
-                        "frozen vegetables",
-                        "frozen meals"
-                    ]
+                    4: "aisle 1",
+                    5: "aisle 2",
+                    6: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 3",
-                    products: [
-                        "meat",
-                        "bread",
-                        "produce"
-                    ]
+                    7: "aisle 4",
+                    8: "aisle 5",
+                    9: "aisle 6"
                 }
             ]
         },
@@ -37,30 +28,21 @@ let MOCK_STORES = {
             name: "All-d",
             state: "Tennessee",
             city: "Nashville",
-            aisles: [
+            products: [
                 {
-                    aisleName: "Aisle 1",
-                    products: [
-                        "cereal",
-                        "granola bars",
-                        "oatmeal"
-                    ]
+                    1: "aisle 1",
+                    2: "aisle 2",
+                    3: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 2",
-                    products: [
-                        "frozen fruit",
-                        "frozen vegetables",
-                        "frozen meals"
-                    ]
+                    4: "aisle 1",
+                    5: "aisle 2",
+                    6: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 3",
-                    products: [
-                        "meat",
-                        "bread",
-                        "produce"
-                    ]
+                    7: "aisle 4",
+                    8: "aisle 5",
+                    9: "aisle 6"
                 }
             ]
         },
@@ -69,30 +51,21 @@ let MOCK_STORES = {
             name: "Bargain Bob's",
             state: "Alabama",
             city: "Huntsville",
-            aisles: [
+            products: [
                 {
-                    aisleName: "Aisle 1",
-                    products: [
-                        "cereal",
-                        "granola bars",
-                        "oatmeal"
-                    ]
+                    1: "aisle 1",
+                    2: "aisle 2",
+                    3: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 2",
-                    products: [
-                        "frozen fruit",
-                        "frozen vegetables",
-                        "frozen meals"
-                    ]
+                    4: "aisle 1",
+                    5: "aisle 2",
+                    6: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 3",
-                    products: [
-                        "meat",
-                        "bread",
-                        "produce"
-                    ]
+                    7: "aisle 4",
+                    8: "aisle 5",
+                    9: "aisle 6"
                 }
             ]
         },
@@ -101,30 +74,21 @@ let MOCK_STORES = {
             name: "Ma and Pa's",
             state: "Alabama",
             city: "Huntsville",
-            aisles: [
+            products: [
                 {
-                    aisleName: "Aisle 1",
-                    products: [
-                        "cereal",
-                        "granola bars",
-                        "oatmeal"
-                    ]
+                    1: "aisle 1",
+                    2: "aisle 2",
+                    3: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 2",
-                    products: [
-                        "frozen fruit",
-                        "frozen vegetables",
-                        "frozen meals"
-                    ]
+                    4: "aisle 1",
+                    5: "aisle 2",
+                    6: "aisle 3"
                 },
                 {
-                    aisleName: "Aisle 3",
-                    products: [
-                        "meat",
-                        "bread",
-                        "produce"
-                    ]
+                    7: "aisle 4",
+                    8: "aisle 5",
+                    9: "aisle 6"
                 }
             ]
         }
