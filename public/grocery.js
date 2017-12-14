@@ -129,7 +129,105 @@ let MOCK_STORES = {
             ]
         }
     ]
-}
+};
+
+let MOCK_LISTS = {
+    "lists" : [
+        {
+            "id": "11111",
+            "content": [
+                {
+                    name: "apples",
+                    department: "produce"
+                }, 
+                {
+                    name: "oranges",
+                    department: "produce"
+                }, 
+                {
+                    name: "bread",
+                    department: "bakery"},
+                {
+                    name: "ground beef",
+                    department: "meat"}
+            ],
+            "listId": "aaaaa",
+            "listName": "My List 1",
+            "publishedAt": 1470016976609
+        },
+        {
+            "id": "22222",
+            "content": [
+                {
+                    name: "beets",
+                    department: "produce"
+                }, 
+                {
+                    name: "bananas",
+                    department: "produce"
+                }, 
+                {
+                    name: "granola",
+                    department: "dry goods"
+                },
+                {
+                    name: "chicken",
+                    department: "meat"
+                }
+            ],
+            "listId": "bbbbb",
+            "listName": "My List 2",
+            "publishedAt": 1470012976609
+        },
+        {
+            "id": "33333",
+            "content": [
+                {
+                    name: "pretzels",
+                    department: "dry goods"
+                }, 
+                {
+                    name: "mustard",
+                    department: "condiments"
+                }, 
+                {
+                    name: "saurkraut",
+                    department: "canned goods"
+                },
+            ],
+            "listId": "ccccc",
+            "listName": "My List 3",
+            "publishedAt": 1470015976609
+        },
+        {
+            "id": "44444",
+            "content": [
+                {
+                    name: "butter",
+                    department: "dairy"
+                }, 
+                {
+                    name: "flour",
+                    department: "dry goods"
+                }, 
+                {
+                    name: "sugar",
+                    department: "dry goods"},
+                {
+                    name: "eggs",
+                    department: "dairy"
+                },
+                {
+                    name: "milk",
+                    department: "dairy"
+                }
+            ],
+            "listId": "ddddd",
+            "listName": "My List 4",
+            "publishedAt": 1470010976609
+        }
+    ]
+};
 
 let states = [];
 let cities = [];
@@ -194,8 +292,6 @@ function displayStores() {
 }
 
 function displayAisles() {
-    //when the user has selected their store, 
-    //display the aisles in that store
     const storeId = $('#select-store').val();
     const aisles = aisles.map(aisle => ``);
     const store = stores.find((store) => {
