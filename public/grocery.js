@@ -98,8 +98,8 @@ let MOCK_STORES = {
 let MOCK_LISTS = {
     "lists" : [
         {
-            "id": "11111",
-            "content": [
+            id: "11111",
+            content: [
                 {
                     name: "apples",
                     department: "produce"
@@ -115,13 +115,13 @@ let MOCK_LISTS = {
                     name: "ground beef",
                     department: "meat"}
             ],
-            "listId": "aaaaa",
-            "listName": "My List 1",
-            "publishedAt": 1470016976609
+            listId: "aaaaa",
+            listName: "My List 1",
+            publishedAt: 1470016976609
         },
         {
-            "id": "22222",
-            "content": [
+            id: "22222",
+            content: [
                 {
                     name: "beets",
                     department: "produce"
@@ -139,13 +139,13 @@ let MOCK_LISTS = {
                     department: "meat"
                 }
             ],
-            "listId": "bbbbb",
-            "listName": "My List 2",
-            "publishedAt": 1470012976609
+            listId: "bbbbb",
+            listName: "My List 2",
+            publishedAt: 1470012976609
         },
         {
-            "id": "33333",
-            "content": [
+            id: "33333",
+            content: [
                 {
                     name: "pretzels",
                     department: "dry goods"
@@ -159,13 +159,13 @@ let MOCK_LISTS = {
                     department: "canned goods"
                 },
             ],
-            "listId": "ccccc",
-            "listName": "My List 3",
-            "publishedAt": 1470015976609
+            listId: "ccccc",
+            listName: "My List 3",
+            publishedAt: 1470015976609
         },
         {
-            "id": "44444",
-            "content": [
+            id: "44444",
+            content: [
                 {
                     name: "butter",
                     department: "dairy"
@@ -186,12 +186,33 @@ let MOCK_LISTS = {
                     department: "dairy"
                 }
             ],
-            "listId": "ddddd",
-            "listName": "My List 4",
-            "publishedAt": 1470010976609
+            listId: "ddddd",
+            listName: "My List 4",
+            publishedAt: 1470010976609
         }
     ]
 };
+
+let lists = [];
+
+function processListData(listData, callback) {
+    lists = Object.values(listData.lists);
+    callback();
+}
+
+function displayLists() {
+    console.log('display lists ran')
+    const options = lists.map(list => {
+        return `<option value="${list.listName}">${list.listName}</option>`
+    });
+    options.unshift(`<option value="0">Choose your list...</option>`)
+
+    $('#select-list').html(options);
+}
+
+function fetchListData(callbackFn) {
+    setTimeout(function(){processListData(MOCK_LISTS, callbackFn)}, 100);
+}
 
 let states = [];
 let cities = [];
@@ -232,7 +253,7 @@ function processData(data, callback) {
 }
 
 function fetchData(callbackFn) {
-    setTimeout(function(){ processData(MOCK_STORES, callbackFn)}, 100);
+    setTimeout(function(){processData(MOCK_STORES, callbackFn)}, 100);
 }
 
 function displayCities() {
@@ -265,6 +286,7 @@ function displayAisles() {
 }
 
 $(function() {
+    fetchListData(displayLists);
     fetchData(displayStates);
 
     $('#select-state').change(function(e){
